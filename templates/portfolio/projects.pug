@@ -1,0 +1,104 @@
+doctype html
+html(lang="en")
+  head
+    title My Projects
+    style.
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .company {
+        margin: 40px 0;
+        padding: 20px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+      }
+      .company-header {
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #eee;
+      }
+      .company-header h2 {
+        margin: 0;
+        color: #2c5282;
+      }
+      .role {
+        color: #4a5568;
+        font-size: 1.1em;
+        margin: 5px 0;
+      }
+      .period {
+        color: #718096;
+        font-size: 0.9em;
+      }
+      .project {
+        margin: 20px 0;
+        padding: 15px;
+        background: #f7fafc;
+        border-radius: 5px;
+      }
+      .project h3 {
+        margin: 0 0 10px 0;
+        color: #2d3748;
+      }
+      .project-link {
+        display: inline-block;
+        margin-top: 8px;
+        color: #4299e1;
+        text-decoration: none;
+      }
+      .project-link:hover {
+        text-decoration: underline;
+      }
+      .side-projects, .fun-projects {
+        margin-top: 40px;
+      }
+      nav {
+        margin: 20px 0;
+      }
+
+  body
+    nav
+      a(href="/") Home
+      |  | 
+      a(href="/projects") Projects
+      |  | 
+      a(href="/extras") More About Me
+
+    h1 Experience & Projects
+
+    main
+      section.companies
+        each company in companies
+          article.company
+            .company-header
+              h2 #{company.name}
+              p.role #{company.role}
+              p.period #{company.period}
+              if company.intro
+                p #{company.intro}
+            
+            .projects
+              each project in company.projects
+                .project
+                  h3 #{project.title}
+                  p #{project.description}
+
+      section.side-projects
+        h2 Side Projects
+        each project in sideProjects
+          article.project
+            h3 #{project.title}
+            p #{project.description}
+
+      section.fun-projects
+        h2 Fun Projects
+        each project in funProjects
+          article.project
+            h3 #{project.title}
+            p #{project.description}
+            if project.link
+              a.project-link(href=project.link target="_blank") View Project → 

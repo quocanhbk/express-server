@@ -1,0 +1,116 @@
+doctype html
+html(lang="en")
+  head
+    title My Achievements
+    style.
+      * {
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      nav {
+        margin: 20px 0;
+      }
+      .achievement {
+        margin: 20px 0;
+        padding: 20px;
+        background: #f7fafc;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+      }
+      .achievement-date {
+        color: #718096;
+        font-size: 0.9em;
+      }
+      .achievement-title {
+        color: #2d3748;
+        margin: 8px 0;
+        font-size: 1.2em;
+      }
+      .add-form {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        border: 2px solid #e2e8f0;
+        margin: 20px 0;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: #4a5568;
+      }
+      input[type="text"],
+      input[type="date"],
+      input[type="time"],
+      textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #cbd5e0;
+        border-radius: 4px;
+        font-size: 1em;
+      }
+      textarea {
+        height: 100px;
+        resize: vertical;
+      }
+      button {
+        background: #4299e1;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #3182ce;
+      }
+
+  body
+    nav
+      a(href="/") Home
+      |  | 
+      a(href="/projects") Projects
+      |  | 
+      a(href="/achievements") Achievements
+      |  | 
+      a(href="/extras") More About Me
+
+    h1 Achievements
+
+    section.add-form
+      h2 Add New Achievement
+      form(action="/achievements" method="POST")
+        .form-group
+          label(for="date_achieved") Date
+          input(type="date" id="date_achieved" name="date_achieved" required)
+        
+        .form-group
+          label(for="time_achieved") Time
+          input(type="time" id="time_achieved" name="time_achieved" required)
+        
+        .form-group
+          label(for="title") Title
+          input(type="text" id="title" name="title" required)
+        
+        .form-group
+          label(for="description") Description
+          textarea(id="description" name="description" required)
+        
+        button(type="submit") Add Achievement
+
+    section.achievements
+      each achievement in achievements
+        article.achievement
+          p.achievement-date #{new Date(achievement.date_achieved).toLocaleString()}
+          h3.achievement-title #{achievement.title}
+          p #{achievement.description} 

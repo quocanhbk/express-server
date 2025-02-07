@@ -1,0 +1,53 @@
+doctype html
+html(lang="en")
+  head
+    title #{profile.name} - Portfolio
+    style.
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      nav {
+        margin: 20px 0;
+      }
+      .skills {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .skill-tag {
+        background: #eee;
+        padding: 5px 10px;
+        border-radius: 15px;
+      }
+
+  body
+    nav
+      a(href="/") Home
+      |  | 
+      a(href="/projects") Projects
+      |  | 
+      a(href="/achievements") Achievements
+      |  | 
+      a(href="/extras") More About Me
+
+    header
+      h1 #{profile.name}
+      h2 #{profile.role}
+      
+    main
+      section.intro
+        p #{profile.intro}
+
+      section.skills
+        h3 Skills
+        .skills
+          each skill in profile.skills
+            span.skill-tag #{skill}
+
+      section.github
+        h3 Github
+        p Check out my GitHub profile at #[a(href=profile.github target="_blank") #{profile.github}]
