@@ -1,10 +1,14 @@
 # Express Server
 
+https://www.notion.so/s5tech/ExpressJS-Tutorial-7b418907ceff4a61b99ab02d94d34c23
+
 ## Prerequisites
 
-- Node.js (v14 or higher recommended)
+- Node.js (v18 or higher recommended)
 - Yarn package manager
 - TypeScript
+- Ts-node
+- Docker
 
 ## Installation
 
@@ -25,12 +29,6 @@ yarn install
 
 ```bash
 docker compose up -d
-```
-
-4. Run database migrations:
-
-```bash
-yarn migrate
 ```
 
 ## Development:
