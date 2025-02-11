@@ -10,7 +10,7 @@ const sequelize = new Sequelize(schema, username, password, {
 });
 sequelize
   .authenticate()
-  .then(() => console.log(`connect datasource success`))
-  .catch((e: any) => console.log(`datasource failed`, e));
+  .then(() => console.log(`Database connected`))
+  .catch((e: any) => console.log(`Database connection failed`, e));
 
 export default sequelize;

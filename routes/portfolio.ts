@@ -178,4 +178,19 @@ router.post("/achievements", async (req: Request, res: Response) => {
   }
 });
 
+// Delete achievement
+router.delete("/achievements/:id", async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    await Achievement.destroy({
+      where: { id },
+    });
+    res.json({ success: true });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ success: false, error: "Error deleting achievement" });
+  }
+});
+
 export default router;

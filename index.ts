@@ -23,5 +23,5 @@ app.use("/prophecy", prophecy_router);
 app.use("/", portfolio_router);
 
 app.listen(HTTP_PORT, () => {
-  console.log(`server listening on ${HTTP_PORT}`);
+  console.log(`Server is running at http://localhost:${HTTP_PORT}`);
 });

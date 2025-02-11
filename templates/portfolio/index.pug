@@ -25,14 +25,7 @@ html(lang="en")
       }
 
   body
-    nav
-      a(href="/") Home
-      |  | 
-      a(href="/projects") Projects
-      |  | 
-      a(href="/achievements") Achievements
-      |  | 
-      a(href="/extras") More About Me
+    include partials/nav
 
     header
       h1 #{profile.name}
