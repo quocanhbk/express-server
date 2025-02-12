@@ -5,23 +5,21 @@ import { Prophecy, Prophet } from "../models";
 const router = Router();
 
 // create API
-router.post("/create", (req: Request, res: Response, next: NextFunction) => {
-  router.post(
-    "/create",
-    json(),
-    async (req: Request, res: Response, next: NextFunction) => {
-      // change from req.query to req.body
-      const { title, description } = req.body;
+router.post(
+  "/create",
+  json(),
+  async (req: Request, res: Response, next: NextFunction) => {
+    // change from req.query to req.body
+    const { title, description } = req.body;
 
-      // await can only be used here if the
-      // wrapping function is async. You can
-      // manually handle the Promise otherwise.
-      const prophecy = await Prophecy.create({ title, description });
+    // await can only be used here if the
+    // wrapping function is async. You can
+    // manually handle the Promise otherwise.
+    const prophecy = await Prophecy.create({ title, description });
 
-      res.send(`create successful ID: ${prophecy.id}`);
-    }
-  );
-});
+    res.send(`create successful ID: ${prophecy.id}`);
+  }
+);
 
 // list (read) API
 router.get("/list", async (req: Request, res: Response, next: NextFunction) => {
